@@ -80,7 +80,7 @@ const remainingTime = (timestamp,timeLimit) => {
     } else{
       formatted = 'full day'
     }
-  } else if(timeLimit === 239){
+  } else if(timeLimit === 240){
     if(moment.utc(totalseconds * 1000).format('hh') > '04' && moment.utc(totalseconds * 1000).format('hh') <= '12' ){
       formatted = moment.utc(totalseconds * 1000).format('mm:ss')
       console.log(formatted.length)
@@ -163,7 +163,7 @@ const colorCode = stats === 'No room' ? 'tomato' : '#38a2b8';
               <button onClick={() => sendData(id,30)}>30 mins</button>
               <button onClick={() => sendData(id,45)}>45 mins</button>
               <button onClick={() => sendData(id,59.99)}>60 mins</button>
-              <button onClick={() => sendData(id,239)}>4 hours</button>
+              <button onClick={() => sendData(id,240)}>4 hours</button>
               <button onClick={() => sendData(id,1440)}>Full Day</button>
             </div>
             <p className="tag font-weight-bold position-absolute close" onClick={() => {setToggleTime(false); setID(null);}}>X</p>

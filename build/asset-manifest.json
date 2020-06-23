@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/HDR/static/css/main.40dded44.chunk.css",
+    "main.js": "/HDR/static/js/main.e1b8ad33.chunk.js",
+    "main.js.map": "/HDR/static/js/main.e1b8ad33.chunk.js.map",
+    "runtime~main.js": "/HDR/static/js/runtime~main.ea5d015e.js",
+    "runtime~main.js.map": "/HDR/static/js/runtime~main.ea5d015e.js.map",
+    "static/js/2.e99d5dcc.chunk.js": "/HDR/static/js/2.e99d5dcc.chunk.js",
+    "static/js/2.e99d5dcc.chunk.js.map": "/HDR/static/js/2.e99d5dcc.chunk.js.map",
+    "index.html": "/HDR/index.html",
+    "precache-manifest.ed40b6d83d415044cc5ab5bee3922974.js": "/HDR/precache-manifest.ed40b6d83d415044cc5ab5bee3922974.js",
+    "service-worker.js": "/HDR/service-worker.js",
+    "static/css/main.40dded44.chunk.css.map": "/HDR/static/css/main.40dded44.chunk.css.map",
+    "static/media/App.css": "/HDR/static/media/bg.6c17c15b.jpg",
+    "static/media/loader.gif": "/HDR/static/media/loader.baeaf0c7.gif",
+    "static/media/off.png": "/HDR/static/media/off.0727485c.png"
+  }
+}
