@@ -76,12 +76,17 @@ const remainingTime = (timestamp,timeLimit) => {
   let formatted
   if(timeLimit === 1440){
     if(moment.unix(timestamp).format('DD') !== moment().format('DD')){
-      formatted = '00:00:00'
+      formatted = '00:00'
     } else{
       formatted = 'full day'
     }
   } else if(timeLimit === 239){
-    formatted = moment.utc(totalseconds * 1000).format('hh:mm:ss')
+    if(moment.utc(totalseconds * 1000).format('hh') > '04' && moment.utc(totalseconds * 1000).format('hh') <= '12' ){
+      formatted = moment.utc(totalseconds * 1000).format('mm:ss')
+      console.log(formatted.length)
+    } else{
+      formatted = moment.utc(totalseconds * 1000).format('hh:mm:ss')
+    }
   }
   else{
     formatted = moment.utc(totalseconds * 1000).format('mm:ss')
@@ -138,6 +143,7 @@ if(!signIn){
 const freeRoom = data.filter(item => item.occupant === '').length;
 const stats= freeRoom === 0 ? 'No room' : freeRoom === 1 ? '1 room' : `${freeRoom} rooms`;
 const colorCode = stats === 'No room' ? 'tomato' : '#38a2b8';
+
   return data.length !== 0 ? (
     <div className="bg">
       <div className="bg-white position-relative vh-100">
@@ -176,7 +182,7 @@ const colorCode = stats === 'No room' ? 'tomato' : '#38a2b8';
               user={user.displayName}
               enabled={item.enabled}
               time={
-                remainingTime(item.timestamp,item.timeLimit) <= "00:00:00 mins left"
+                remainingTime(item.timestamp,item.timeLimit) <= "00:00 mins left"
                   ? lessThanZero(item.id,item.name,item.occupant)
                 : remainingTime(item.timestamp,item.timeLimit) > 0 && remainingTime(item.timestamp,item.timeLimit) <= 5
                   ? remainingTime(item.timestamp,item.timeLimit) +  " mins left"
@@ -187,7 +193,7 @@ const colorCode = stats === 'No room' ? 'tomato' : '#38a2b8';
               }
               onClick={item.status ? () => sendData(item.id) : () => setTime(item.id)}
               handleExtend = {() => extendTime(item.id,item.name,item.occupant,item.timestamp,item.timeLimit)}
-              showExtend={item.status && remainingTime(item.timestamp,item.timeLimit) <= "00:05:00 mins left"}
+              showExtend={item.status && remainingTime(item.timestamp,item.timeLimit).length === 8 ?  remainingTime(item.timestamp,item.timeLimit) <= "00:05:00 mins left" : remainingTime(item.timestamp,item.timeLimit) <= "05:00 mins left"}
               fade={id!==null}
             />
           }) : <p>{message}</p>}

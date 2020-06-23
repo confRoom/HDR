@@ -3,6 +3,7 @@ import React from 'react'
 import '../design/App.css';
 
 export default function ListItem({keyValue,name,item,enabled,onClick,occupied,user,status,time,showExtend,handleExtend,fade}) {
+  console.log(showExtend)
   return (
     <div className="d-flex justify-content-between align-items-center list" style={{opacity: fade ? 0 : 1}} key={keyValue}>
       <p className="text-info font-weight-bold" key={keyValue}>{name}</p>
@@ -14,7 +15,7 @@ export default function ListItem({keyValue,name,item,enabled,onClick,occupied,us
         }
         <div style={{ borderColor:  status ? '#0c9' : '#999',display: status ? 'block' : !occupied && enabled  ? 'block' : 'none' }}
           className="box"
-          onClick={onClick} >
+          onClick={onClick}>
         </div>
       </div>
     </div>
