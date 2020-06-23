@@ -1,11 +1,11 @@
 import React from 'react'
 import off from "../assets/off.png";
 
-export default function Header({src,onClick,stats,style,show}) {
+export default function Header({src,onClick,stats,style,show,showInfo}) {
   return (
     <div className="pb-3 header">
       <div className="d-flex justify-content-between align-items-center">
-        {show ? <h6 className="my-3 font-weight-bold" style={style}>Occupancy Status: {stats} available </h6> :  <h6 className="my-3  font-weight-bold text-info">HDR Conference Room Management</h6> }
+        {show ? <div className="d-flex align-items-center"><h6 className="my-3 font-weight-bold" style={style}>Occupancy Status: {stats} available</h6> <h4 className="text-warning mx-2 bg-light hand px-2 rounded-circle" onClick={showInfo}>&#x2139;</h4></div> :  <h6 className="my-3  font-weight-bold text-info">HDR Conference Room Management</h6> }
         <div className="d-flex ml-3 align-items-center">
           <img src={src} alt="profile" className="profile" />
           <button onClick={onClick}>

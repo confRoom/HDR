@@ -17,6 +17,7 @@ const [occupiedUser, setOccupiedUser] = useState([]);
 const [toggleTime,setToggleTime] = useState(false);
 const { user,signIn } = useContext(AuthContext);
 const [loading,setLoading]= useState(false);
+const [info,toggleInfo]= useState(false);
 
 useEffect(() => {
   setInterval(() => {
@@ -152,6 +153,7 @@ const colorCode = stats === 'No room' ? 'tomato' : '#38a2b8';
           style={{color: colorCode}}
           src={user && user.photoURL}
           onClick={() => firebase.auth().signOut()}
+          showInfo = {() => toggleInfo(!info)}
           stats={stats}
           show={freeRoom !== 0 ? true : false}
         />
@@ -197,7 +199,7 @@ const colorCode = stats === 'No room' ? 'tomato' : '#38a2b8';
               fade={id!==null}
             />
           }) : <p>{message}</p>}
-          {id === null ?
+          {id === null && info ?
             <div className="fixed-bottom flex-column  mb-5 d-flex">
               <p className="text-center small text-info pb-2">How to use ?</p>
               <div className="d-flex justify-content-around align-items-center">
@@ -215,7 +217,7 @@ const colorCode = stats === 'No room' ? 'tomato' : '#38a2b8';
             </div>
             : null
           }
-        <Footer />
+        <Footer/>
         </div>
       </div>
     </div>
