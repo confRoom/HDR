@@ -201,7 +201,7 @@ const colorCode = stats === 'No room' ? 'tomato' : '#38a2b8';
           }) : <p>{message}</p>}
           {id === null && info ?
             <div className="fixed-bottom flex-column  mb-5 d-flex">
-              <p className="text-center small text-info pb-2">How to use ?</p>
+              <p className="text-center small text-dark pb-2">How to use ?</p>
               <div className="d-flex justify-content-around align-items-center">
               <div className="d-flex align-items-center">
                 <p className="small mx-2">Press</p>
